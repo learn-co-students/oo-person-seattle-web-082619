@@ -4,14 +4,13 @@ class Person
  
     def initialize(name) 
         @name = name 
-        @bank_account= 25
-        @happiness = 8
-        @hygiene = 8
+        self.bank_account= 25
+        self.happiness = 8
+        self.hygiene = 8
     end 
 
     def happiness=(number)
-        @happiness = number.clamp(0,10)
-        
+        @happiness = number.clamp(0,10) 
     end 
 
     def hygiene=(number)
@@ -66,6 +65,5 @@ class Person
         else 
             "blah blah blah blah blah"
         end 
-    end 
-
+    end
 end 
