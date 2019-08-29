@@ -1,6 +1,6 @@
 class Person
-    attr_reader :name
-    attr_accessor :bank_account, :happiness, :hygiene
+    attr_reader :name, :happiness, :hygiene
+    attr_accessor :bank_account
  
     def initialize(name) 
         @name = name 
@@ -46,7 +46,6 @@ class Person
     end 
 
     def call_friend(friend)
-        #method is being called by the caller
         friend.happiness += 3
         self.happiness += 3 
         "Hi #{friend.name}! It's #{self.name}. How are you?"
