@@ -52,17 +52,21 @@ class Person
     end 
 
     def start_conversation(person,topic)
+        boring_sentence = "blah blah "
+
         case topic 
         when "politics"
             person.happiness -= 2
             self.happiness -= 2
-            "blah blah partisan blah lobbyist"
+            boring_sentence += "partisan blah lobbyist"
         when "weather"   
             person.happiness += 1
             self.happiness += 1
-            "blah blah sun blah rain"
+            boring_sentence += "sun blah rain"
         else 
-            "blah blah blah blah blah"
+            boring_sentence += "blah blah blah"
         end 
+
+        boring_sentence
     end
 end 
