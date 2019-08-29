@@ -1,8 +1,10 @@
 # your code goes here
 require 'pry'
+
+
 class Person
     attr_reader :name, :hygiene, :happiness
-    attr_writer 
+    
     attr_accessor :bank_account
 
     def initialize(name)
@@ -28,29 +30,26 @@ class Person
     
     #limit happiness to between 0,10
     def happiness=(value)
-        if value > 10
-            @happiness= 10
-        elsif value < 0
-            @happiness = 0
-        else 
-            @happiness = value
-        end
+        @happiness = value.clamp(0,10)
+        # if value > 10
+        #     @happiness= 10
+        # elsif value < 0
+        #     @happiness = 0
+        # else 
+        #     @happiness = value
+        # end
+    end
+
+    def value_greater_than_7(value)
+        value > 7 #this returning the boolean of value > 7
     end
 
     def happy?
-        if @happiness > 7
-            true
-        else
-            false
-        end
+        value_greater_than_7(@happiness)
     end
 
     def clean?
-        if @hygiene > 7
-            true
-        else
-            false
-        end
+        value_greater_than_7(@hygiene)
     end
 
     def get_paid(salary)
@@ -59,17 +58,19 @@ class Person
     end
 
     def take_bath
-        new_hygiene = @hygiene + 4
-        self.hygiene=(new_hygiene)
-        # self.hygiene = @hygiene + 4
+        self.hygiene += 4
         '♪ Rub-a-dub just relaxing in the tub ♫'
     end
 
     def work_out
-        new_hygiene = @hygiene - 3
-        self.hygiene=(new_hygiene)
-        new_happy = @happiness + 2
-        self.happiness=(new_happy)
+        # new_hygiene = @hygiene - 3
+        # self.hygiene=(new_hygiene)
+        # new_happy = @happiness + 2
+        # self.happiness=(new_happy)
+        # "♪ another one bites the dust ♫"
+
+        self.hygiene -= 3
+        self.happiness += 2
         "♪ another one bites the dust ♫"
     end
 
